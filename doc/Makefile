@@ -65,7 +65,7 @@ hpp-pinocchio_extra_flags=-DDISABLE_TESTS=ON
 hpp-statistics_branch=devel
 hpp-statistics_repository=${HPP_REPO}
 
-hpp-core_branch=rbprm_1
+hpp-core_branch=collision_validation_fix
 hpp-core_repository=${HPP_REPO}
 hpp-core_extra_flags=-DDISABLE_TESTS=ON
 
