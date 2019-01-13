@@ -196,6 +196,8 @@ bezier_COM_traj_repository=${GITLAB_REPO}
 spline_branch=master
 spline_repository=${STONNEAU_REPO}
 
+eigenpy_branch=master
+eigenpy_repository=${SOT_REPO}
 
 OpenSceneGraph-dae-plugin_extra_flags= -DCOLLADA_DYNAMIC_LIBRARY=${INSTALL_HPP_DIR}/lib/libcollada14dom.so -DCOLLADA_INCLUDE_DIR=${INSTALL_HPP_DIR}/include/collada-dom
 OpenSceneGraph-3.4.0_extra_flags= -DDESIRED_QT_VERSION=${QT_VERSION} -DCOLLADA_DYNAMIC_LIBRARY=${INSTALL_HPP_DIR}/lib/libcollada14dom.so -DCOLLADA_INCLUDE_DIR=${INSTALL_HPP_DIR}/include/collada-dom -DLIB_POSTFIX=""
@@ -325,7 +327,7 @@ hpp-affordance.install bezier_COM_traj.install hpp-rbprm.checkout
 hpp-rbprm-robot-data.configure.dep: hpp-rbprm-robot-data.checkout
 hpp-rbprm-corba.configure.dep: hpp-rbprm.install hpp-affordance-corba.install \
  hpp-corbaserver.install hpp-rbprm-robot-data.install hpp-rbprm-corba.checkout
-centroidal-dynamics-lib.configure.dep: qpOASES.install centroidal-dynamics-lib.checkout
+centroidal-dynamics-lib.configure.dep: qpOASES.install eigenpy.install centroidal-dynamics-lib.checkout
 bezier_COM_traj.configure.dep: centroidal-dynamics-lib.install spline.install bezier_COM_traj.checkout
 spline.configure.dep: spline.checkout
 
