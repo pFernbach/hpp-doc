@@ -10,7 +10,6 @@ SOT_REPO=https://github.com/stack-of-tasks
 RETHINK_ROBOTICS_REPO=https://github.com/RethinkRobotics
 ROBOPTIM_REPO=https://github.com/roboptim
 TRAC_REPO=ssh://pfernbac@trac.laas.fr/git/jrl/robots/ros-hrp2
-PF_REPO=https://github.com/pFernbach
 GITLAB_REPO=https://gitlab.com/stonneau
 STONNEAU_REPO =https://github.com/stonneau
 
@@ -178,14 +177,14 @@ hpp-affordance_repository=${HPP_REPO}
 hpp-affordance-corba_branch=rbprm_1
 hpp-affordance-corba_repository=${HPP_REPO}
 
-hpp-rbprm_branch=topic/kino
-hpp-rbprm_repository=${PF_REPO}
+hpp-rbprm_branch=rbprm_v_1
+hpp-rbprm_repository=${HPP_REPO}
 
 hpp-rbprm-robot-data_branch=rbprm_1
 hpp-rbprm-robot-data_repository=${HPP_REPO}
 
-hpp-rbprm-corba_branch=topic/kino
-hpp-rbprm-corba_repository=${PF_REPO}
+hpp-rbprm-corba_branch=rbprm_v_1
+hpp-rbprm-corba_repository=${HPP_REPO}
 
 centroidal-dynamics-lib_branch=rbprm_1
 centroidal-dynamics-lib_repository=${STONNEAU_REPO}
