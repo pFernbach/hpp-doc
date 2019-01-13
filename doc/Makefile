@@ -10,9 +10,9 @@ SOT_REPO=https://github.com/stack-of-tasks
 RETHINK_ROBOTICS_REPO=https://github.com/RethinkRobotics
 ROBOPTIM_REPO=https://github.com/roboptim
 TRAC_REPO=ssh://pfernbac@trac.laas.fr/git/jrl/robots/ros-hrp2
-PF_REPO=git@github.com:pFernbach
-GITLAB_REPO=git@gitlab.com:stonneau
-STONNEAU_REPO =git@github.com:stonneau
+PF_REPO=https://github.com/pFernbach
+GITLAB_REPO=https://gitlab.com/stonneau
+STONNEAU_REPO =https://github.com/stonneau
 
 SRC_DIR=${DEVEL_HPP_DIR}/src
 ifndef INSTALL_HPP_DIR
