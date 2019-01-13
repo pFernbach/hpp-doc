@@ -251,7 +251,7 @@ hpp-core.configure.dep: hpp-constraints.install hpp-statistics.install \
 	hpp-core.checkout
 qpOASES.configure.dep: qpOASES.checkout
 hpp-constraints.configure.dep: qpOASES.install \
-	hpp-pinocchio.install hpp-statistics.install hpp-constraints.checkout
+	hpp-pinocchio.install hpp-statistics.install romeo.install hpp-constraints.checkout
 hpp-wholebody-step.configure.dep: hpp-constraints.install hpp-walkgen.install \
 	hpp-wholebody-step.checkout
 ifeq (${HUMANOID}, TRUE)
