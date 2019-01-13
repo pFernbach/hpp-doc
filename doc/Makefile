@@ -330,7 +330,7 @@ hpp-rbprm-corba.configure.dep: hpp-rbprm.install hpp-affordance-corba.install \
 centroidal-dynamics-lib.configure.dep: qpOASES.install eigenpy.install centroidal-dynamics-lib.checkout
 bezier_COM_traj.configure.dep: centroidal-dynamics-lib.install spline.install bezier_COM_traj.checkout
 spline.configure.dep: spline.checkout
-
+eigenpy.configure.dep: eigenpy.checkout
 
 status:
 	@for child_dir in $$(ls ${SRC_DIR}); do \
