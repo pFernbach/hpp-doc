@@ -7,9 +7,12 @@ FCL_REPO=https://github.com/flexible-collision-library
 LAAS_REPO=https://github.com/laas
 HPP_REPO=https://github.com/humanoid-path-planner
 SOT_REPO=https://github.com/stack-of-tasks
-GEPETTO_REPO=https://github.com/Gepetto
 RETHINK_ROBOTICS_REPO=https://github.com/RethinkRobotics
-TRAC_REPO=ssh://trac.laas.fr/git/jrl/robots/ros-hrp2
+ROBOPTIM_REPO=https://github.com/roboptim
+TRAC_REPO=ssh://pfernbac@trac.laas.fr/git/jrl/robots/ros-hrp2
+PF_REPO=git@github.com:pFernbach
+GITLAB_REPO=git@gitlab.com:stonneau
+STONNEAU_REPO =git@github.com:stonneau
 
 SRC_DIR=${DEVEL_HPP_DIR}/src
 ifndef INSTALL_HPP_DIR
@@ -26,7 +29,7 @@ else
   BUILD_FOLDER=build-rel
 endif
 
-OSG_PACKAGE=osg-dae
+OSG_PACKAGE=OpenSceneGraph-dae-plugin
 #OSG_PACKAGE=OpenSceneGraph-3.4.0
 
 WGET=wget --quiet
@@ -37,9 +40,17 @@ GIT_QUIET=--quiet
 QT_VERSION=4
 INSTALL_DOCUMENTATION=ON
 
-hpp-fcl_branch=devel
+hpp-fcl_branch=rbprm_1_tag
 hpp-fcl_repository=${HPP_REPO}
 hpp-fcl_extra_flags= -DCMAKE_BUILD_TYPE=Release
+
+roboptim-core_branch=master
+roboptim-core_repository=${ROBOPTIM_REPO}
+roboptim-core_extra_flags= -DCMAKE_BUILD_TYPE=Release -DCXX_DISABLE_WERROR=ON
+
+roboptim-trajectory_branch=master
+roboptim-trajectory_repository=${ROBOPTIM_REPO}
+roboptim-trajectory_extra_flags= -DCMAKE_BUILD_TYPE=Release -DCXX_DISABLE_WERROR=ON
 
 hpp-util_branch=devel
 hpp-util_repository=${HPP_REPO}
@@ -48,24 +59,27 @@ pinocchio_branch=hpp
 pinocchio_repository=${SOT_REPO}
 pinocchio_extra_flags= -DBUILD_PYTHON_INTERFACE=OFF -DBUILD_UNIT_TESTS=OFF
 
-hpp-pinocchio_branch=devel
+hpp-pinocchio_branch=rbprm_1
 hpp-pinocchio_repository=${HPP_REPO}
 hpp-pinocchio_extra_flags=-DDISABLE_TESTS=ON
 
 hpp-statistics_branch=devel
 hpp-statistics_repository=${HPP_REPO}
 
-hpp-core_branch=devel
+hpp-core_branch=rbprm_1
 hpp-core_repository=${HPP_REPO}
 hpp-core_extra_flags=-DDISABLE_TESTS=ON
 
 hpp-template-corba_branch=devel
 hpp-template-corba_repository=${HPP_REPO}
 
-hpp-corbaserver_branch=devel
+hpp-corbaserver_branch=rbprm_1
 hpp-corbaserver_repository=${HPP_REPO}
 
-hpp-constraints_branch=devel
+qpOASES_branch=devel
+qpOASES_repository=${HPP_REPO}
+
+hpp-constraints_branch=rbprm_1
 hpp-constraints_repository=${HPP_REPO}
 hpp-constraints_extra_flags=-DDISABLE_TESTS=ON
 
@@ -96,15 +110,6 @@ robot_model_py_repository=${LAAS_REPO}
 hpp-doc_branch=devel
 hpp-doc_repository=${HPP_REPO}
 
-hpp-manipulation_branch=devel
-hpp-manipulation_repository=${HPP_REPO}
-
-hpp-manipulation-urdf_branch=devel
-hpp-manipulation-urdf_repository=${HPP_REPO}
-
-hpp-manipulation-corba_branch=devel
-hpp-manipulation-corba_repository=${HPP_REPO}
-
 iai_maps_branch=devel
 iai_maps_repository=${HPP_REPO}
 
@@ -117,14 +122,14 @@ hpp_benchmark_repository=${HPP_REPO}
 collada-dom_branch=master
 collada-dom_repository=${HPP_REPO}
 
-osg-dae_branch=master
-osg-dae_repository=${GEPETTO_REPO}
+OpenSceneGraph-dae-plugin_branch=master
+OpenSceneGraph-dae-plugin_repository=${HPP_REPO}
 
 gepetto-viewer_branch=devel
-gepetto-viewer_repository=${GEPETTO_REPO}
+gepetto-viewer_repository=${HPP_REPO}
 
 gepetto-viewer-corba_branch=devel
-gepetto-viewer-corba_repository=${GEPETTO_REPO}
+gepetto-viewer-corba_repository=${HPP_REPO}
 ifeq (${QT_VERSION}, 5)
   gepetto-viewer-corba_extra_flags= -DUSE_QT4=OFF
 endif
@@ -151,8 +156,8 @@ hpp-environments_repository=${HPP_REPO}
 universal_robot_branch=kinetic
 universal_robot_repository=${HPP_REPO}
 
-hpp-universal-robot_branch=devel
-hpp-universal-robot_repository=${HPP_REPO}
+hpp_universal_robot_branch=devel
+hpp_universal_robot_repository=${HPP_REPO}
 
 baxter_common_branch=master
 baxter_common_repository=${RETHINK_ROBOTICS_REPO}
@@ -166,10 +171,38 @@ hpp_romeo_repository=${HPP_REPO}
 romeo_branch=master
 romeo_repository=${HPP_REPO}
 
-osg-dae_extra_flags= -DCOLLADA_DYNAMIC_LIBRARY=${INSTALL_HPP_DIR}/lib/libcollada14dom.so -DCOLLADA_INCLUDE_DIR=${INSTALL_HPP_DIR}/include/collada-dom
+
+hpp-affordance_branch=rbprm_1
+hpp-affordance_repository=${HPP_REPO}
+
+hpp-affordance-corba_branch=rbprm_1
+hpp-affordance-corba_repository=${HPP_REPO}
+
+hpp-rbprm_branch=topic/kino
+hpp-rbprm_repository=${PF_REPO}
+
+hpp-rbprm-robot-data_branch=rbprm_1
+hpp-rbprm-robot-data_repository=${HPP_REPO}
+
+hpp-rbprm-corba_branch=topic/kino
+hpp-rbprm-corba_repository=${PF_REPO}
+
+centroidal-dynamics-lib_branch=rbprm_1
+centroidal-dynamics-lib_repository=${STONNEAU_REPO}
+
+bezier_COM_traj_branch=rbprm_1
+bezier_COM_traj_repository=${GITLAB_REPO}
+
+spline_branch=master
+spline_repository=${STONNEAU_REPO}
+
+
+OpenSceneGraph-dae-plugin_extra_flags= -DCOLLADA_DYNAMIC_LIBRARY=${INSTALL_HPP_DIR}/lib/libcollada14dom.so -DCOLLADA_INCLUDE_DIR=${INSTALL_HPP_DIR}/include/collada-dom
 OpenSceneGraph-3.4.0_extra_flags= -DDESIRED_QT_VERSION=${QT_VERSION} -DCOLLADA_DYNAMIC_LIBRARY=${INSTALL_HPP_DIR}/lib/libcollada14dom.so -DCOLLADA_INCLUDE_DIR=${INSTALL_HPP_DIR}/include/collada-dom -DLIB_POSTFIX=""
 
 collada-dom_extra_flags=-DBUILD_SHARED_LIBS=TRUE -DOPT_COLLADA15=FALSE
+
+qpOASES_extra_flags= -DCMAKE_BUILD_TYPE=Release
 
 ifeq (${HUMANOID}, TRUE)
   hpp-manipulation_extra_flags=-DHPP_MANIPULATION_HAS_WHOLEBODY_STEP=TRUE
@@ -179,6 +212,9 @@ else
   hpp-manipulation-corba_extra_flags=-DHPP_MANIPULATION_HAS_WHOLEBODY_STEP=FALSE
 endif
 
+
+
+
 all: hpp_tutorial.install hpp-gepetto-viewer.install
 	${MAKE} hpp-doc.install
 
@@ -186,7 +222,7 @@ all: hpp_tutorial.install hpp-gepetto-viewer.install
 test-ci: baxter_common.install romeo.install universal_robot.install \
 	hpp-environments.install
 	${MAKE} hpp_tutorial.install hpp-gepetto-viewer.install \
-	hpp-universal-robot.install && \
+	hpp_universal_robot.install && \
 	${MAKE} hpp-doc.install
 
 # For benchmark, install robot packages first
@@ -194,14 +230,17 @@ benchmark: baxter_common.install romeo.install universal_robot.install \
 	hpp-environments.install hrp2-14-description.install
 	${MAKE} hpp_tutorial.install hpp-gepetto-viewer.install; \
 	${MAKE} hpp-baxter.install hpp_romeo.install \
-	hpp-universal-robot.install hpp-plot.install hpp-gui.install; \
+	hpp_universal_robot.install hpp-plot.install hpp-gui.install; \
 	${MAKE} hpp_benchmark.checkout; \
 	${MAKE} hpp-doc.install
 
 hpp-doc.configure.dep: hpp-doc.checkout
 hpp-fcl.configure.dep: hpp-fcl.checkout
+roboptim-core.configure.dep: roboptim-core.checkout
+roboptim-trajectory.configure.dep: roboptim-core.install \
+	roboptim-trajectory.checkout
 hpp-walkgen.configure.dep: hpp-util.install hpp-core.install \
-	hpp-walkgen.checkout
+        roboptim-trajectory.install hpp-walkgen.checkout
 hpp-util.configure.dep: hpp-util.checkout
 hpp-model-urdf.configure.dep: hpp-model.install hpp-model-urdf.checkout
 pinocchio.configure.dep: hpp-fcl.install pinocchio.checkout
@@ -210,8 +249,9 @@ hpp-pinocchio.configure.dep: pinocchio.install hpp-util.install \
 hpp-statistics.configure.dep: hpp-util.install hpp-statistics.checkout
 hpp-core.configure.dep: hpp-constraints.install hpp-statistics.install \
 	hpp-core.checkout
-hpp-constraints.configure.dep: hpp-pinocchio.install hpp-statistics.install \
-	hpp-constraints.checkout
+qpOASES.configure.dep: qpOASES.checkout
+hpp-constraints.configure.dep: qpOASES.install \
+	hpp-pinocchio.install hpp-statistics.install hpp-constraints.checkout
 hpp-wholebody-step.configure.dep: hpp-constraints.install hpp-walkgen.install \
 	hpp-wholebody-step.checkout
 ifeq (${HUMANOID}, TRUE)
@@ -256,8 +296,8 @@ hpp_tutorial.configure.dep: hpp-gepetto-viewer.install iai_maps.install \
 	hpp-manipulation-corba.install hpp_tutorial.checkout
 hpp_benchmark.configure.dep: hpp_benchmark.checkout
 collada-dom.configure.dep: collada-dom.checkout
-osg-dae.configure.dep: collada-dom.install \
-	osg-dae.checkout
+OpenSceneGraph-dae-plugin.configure.dep: collada-dom.install \
+	OpenSceneGraph-dae-plugin.checkout
 OpenSceneGraph-3.4.0.configure.dep: collada-dom.install \
 	OpenSceneGraph-3.4.0.checkout
 gepetto-viewer.configure.dep: ${OSG_PACKAGE}.install \
@@ -269,14 +309,26 @@ hpp-gepetto-viewer.configure.dep: gepetto-viewer-corba.install \
 	hpp-gepetto-viewer.checkout
 hpp-gui.configure.dep: hpp-gui.checkout
 universal_robot.configure.dep: universal_robot.checkout
-hpp-universal-robot.configure.dep: universal_robot.install \
-	hpp-universal-robot.checkout
+hpp_universal_robot.configure.dep: universal_robot.install \
+	hpp_universal_robot.checkout
 hpp-environments.configure.dep: hpp-environments.checkout
 baxter_common.configure.dep: baxter_common.checkout
 hpp-baxter.configure.dep: baxter_common.install hpp-baxter.checkout
 pythonqt.configure.dep: pythonqt.checkout
 hpp_romeo.configure.dep: romeo.install hpp_romeo.checkout
 romeo.configure.dep: romeo.checkout
+hpp-affordance.configure.dep: hpp-core.install hpp-fcl.install hpp-affordance.checkout
+hpp-affordance-corba.configure.dep: hpp-affordance.install hpp-template-corba.install \
+ hpp-corbaserver.install hpp-affordance-corba.checkout
+hpp-rbprm.configure.dep: hpp-core.install centroidal-dynamics-lib.install \
+hpp-affordance.install bezier_COM_traj.install hpp-rbprm.checkout
+hpp-rbprm-robot-data.configure.dep: hpp-rbprm-robot-data.checkout
+hpp-rbprm-corba.configure.dep: hpp-rbprm.install hpp-affordance-corba.install \
+ hpp-corbaserver.install hpp-rbprm-robot-data.install hpp-rbprm-corba.checkout
+centroidal-dynamics-lib.configure.dep: qpOASES.install centroidal-dynamics-lib.checkout
+bezier_COM_traj.configure.dep: centroidal-dynamics-lib.install spline.install bezier_COM_traj.checkout
+spline.configure.dep: spline.checkout
+
 
 status:
 	@for child_dir in $$(ls ${SRC_DIR}); do \
