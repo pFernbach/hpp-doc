@@ -189,8 +189,8 @@ hpp-rbprm-corba_repository=${HPP_REPO}
 centroidal-dynamics-lib_branch=rbprm_1
 centroidal-dynamics-lib_repository=${STONNEAU_REPO}
 
-bezier_COM_traj_branch=rbprm_1
-bezier_COM_traj_repository=${GITLAB_REPO}
+bezier_COM_traj_branch=topic/end_effector
+bezier_COM_traj_repository=https://gitlab.com/pFernbach
 
 spline_branch=master
 spline_repository=${STONNEAU_REPO}
