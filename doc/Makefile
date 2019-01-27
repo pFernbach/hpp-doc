@@ -180,7 +180,7 @@ hpp-affordance-corba_repository=${HPP_REPO}
 hpp-rbprm_branch=rbprm_v_1
 hpp-rbprm_repository=${HPP_REPO}
 
-hpp-rbprm-robot-data_branch=rbprm_1
+hpp-rbprm-robot-data_branch=master
 hpp-rbprm-robot-data_repository=${HPP_REPO}
 
 hpp-rbprm-corba_branch=rbprm_v_1
