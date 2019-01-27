@@ -12,6 +12,7 @@ ROBOPTIM_REPO=https://github.com/roboptim
 TRAC_REPO=ssh://pfernbac@trac.laas.fr/git/jrl/robots/ros-hrp2
 GITLAB_REPO=https://gitlab.com/stonneau
 STONNEAU_REPO =https://github.com/stonneau
+GEPETTO_REPO=https://github.com/Gepetto
 
 SRC_DIR=${DEVEL_HPP_DIR}/src
 ifndef INSTALL_HPP_DIR
@@ -28,7 +29,8 @@ else
   BUILD_FOLDER=build-rel
 endif
 
-OSG_PACKAGE=OpenSceneGraph-dae-plugin
+
+OSG_PACKAGE=osg-dae
 #OSG_PACKAGE=OpenSceneGraph-3.4.0
 
 WGET=wget --quiet
@@ -118,23 +120,24 @@ hpp_tutorial_repository=${HPP_REPO}
 hpp_benchmark_branch=master
 hpp_benchmark_repository=${HPP_REPO}
 
+
 collada-dom_branch=master
 collada-dom_repository=${HPP_REPO}
+collada-dom_extra_flags=-DBUILD_SHARED_LIBS=TRUE -DOPT_COLLADA15=FALSE
 
-OpenSceneGraph-dae-plugin_branch=master
-OpenSceneGraph-dae-plugin_repository=${HPP_REPO}
+osg-dae_branch=master
+osg-dae_repository=${GEPETTO_REPO}
+osg-dae_extra_flags= -DCOLLADA_DYNAMIC_LIBRARY=${INSTALL_HPP_DIR}/lib/libcollada14dom.so -DCOLLADA_INCLUDE_DIR=${INSTALL_HPP_DIR}/include/collada-dom
+OpenSceneGraph-3.4.0_extra_flags= -DDESIRED_QT_VERSION=${QT_VERSION} -DCOLLADA_DYNAMIC_LIBRARY=${INSTALL_HPP_DIR}/lib/libcollada14dom.so -DCOLLADA_INCLUDE_DIR=${INSTALL_HPP_DIR}/include/collada-dom -DLIB_POSTFIX=""
 
 gepetto-viewer_branch=devel
-gepetto-viewer_repository=${HPP_REPO}
+gepetto-viewer_repository=${GEPETTO_REPO}
 
 gepetto-viewer-corba_branch=devel
-gepetto-viewer-corba_repository=${HPP_REPO}
+gepetto-viewer-corba_repository=${GEPETTO_REPO}
 ifeq (${QT_VERSION}, 5)
   gepetto-viewer-corba_extra_flags= -DUSE_QT4=OFF
 endif
-
-hpp-gepetto-viewer_branch=devel
-hpp-gepetto-viewer_repository=${HPP_REPO}
 
 pythonqt_branch=qt${QT_VERSION}
 pythonqt_repository=${HPP_REPO}
@@ -143,10 +146,13 @@ pythonqt_extra_flags= -DPythonQt_Wrap_QtAll=ON -DPythonQt_Extensions=ON
 qgv_branch=devel
 qgv_repository=${HPP_REPO}
 
-hpp-plot_branch=devel
+hpp-gepetto-viewer_branch=${HPP_VERSION}
+hpp-gepetto-viewer_repository=${HPP_REPO}
+
+hpp-plot_branch=${HPP_VERSION}
 hpp-plot_repository=${HPP_REPO}
 
-hpp-gui_branch=devel
+hpp-gui_branch=${HPP_VERSION}
 hpp-gui_repository=${HPP_REPO}
 
 hpp-environments_branch=devel
@@ -297,8 +303,8 @@ hpp_tutorial.configure.dep: hpp-gepetto-viewer.install iai_maps.install \
 	hpp-manipulation-corba.install hpp_tutorial.checkout
 hpp_benchmark.configure.dep: hpp_benchmark.checkout
 collada-dom.configure.dep: collada-dom.checkout
-OpenSceneGraph-dae-plugin.configure.dep: collada-dom.install \
-	OpenSceneGraph-dae-plugin.checkout
+osg-dae.configure.dep: collada-dom.install \
+	osg-dae.checkout
 OpenSceneGraph-3.4.0.configure.dep: collada-dom.install \
 	OpenSceneGraph-3.4.0.checkout
 gepetto-viewer.configure.dep: ${OSG_PACKAGE}.install \
