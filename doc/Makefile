@@ -177,7 +177,7 @@ romeo_branch=master
 romeo_repository=${HPP_REPO}
 
 
-hpp-affordance_branch=rbprm_1
+hpp-affordance_branch=rbprm_v_1
 hpp-affordance_repository=${HPP_REPO}
 
 hpp-affordance-corba_branch=rbprm_1
