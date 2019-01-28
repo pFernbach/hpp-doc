@@ -58,7 +58,7 @@ hpp-util_repository=${HPP_REPO}
 
 pinocchio_branch=hpp
 pinocchio_repository=${SOT_REPO}
-pinocchio_extra_flags= -DBUILD_PYTHON_INTERFACE=OFF -DBUILD_UNIT_TESTS=OFF
+pinocchio_extra_flags= -DBUILD_PYTHON_INTERFACE=ON -DBUILD_UNIT_TESTS=OFF
 
 hpp-pinocchio_branch=rbprm_1
 hpp-pinocchio_repository=${HPP_REPO}
@@ -197,9 +197,11 @@ centroidal-dynamics-lib_repository=${STONNEAU_REPO}
 
 bezier_COM_traj_branch=topic/end_effector
 bezier_COM_traj_repository=https://gitlab.com/pFernbach
+bezier_COM_traj_extra_flags= -DBUILD_PYTHON_INTERFACE=ON
 
 spline_branch=master
 spline_repository=${STONNEAU_REPO}
+spline_extra_flags= -DBUILD_PYTHON_INTERFACE=ON
 
 eigenpy_branch=master
 eigenpy_repository=${SOT_REPO}
