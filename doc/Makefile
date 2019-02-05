@@ -201,6 +201,9 @@ hpp-spline_extra_flags= -DBUILD_PYTHON_INTERFACE=ON
 qpOASES_branch=devel
 qpOASES_repository=${HPP_REPO}
 
+eigenpy_branch=master
+eigenpy_repository=${SOT_REPO}
+
 # }}}
 ##################################
 # {{{ Packages for gepetto-gui
