@@ -198,6 +198,8 @@ hpp-spline_branch=master
 hpp-spline_repository=${HPP_REPO}
 hpp-spline_extra_flags= -DBUILD_PYTHON_INTERFACE=ON
 
+qpOASES_branch=devel
+qpOASES_repository=${HPP_REPO}
 
 # }}}
 ##################################
@@ -348,7 +350,7 @@ hpp-centroidal-dynamics-lib.configure.dep: qpOASES.install eigenpy.install hpp-c
 hpp-bezier-COM-traj.configure.dep: hpp-centroidal-dynamics-lib.install hpp-spline.install hpp-bezier-COM-traj.checkout
 hpp-spline.configure.dep: hpp-spline.checkout
 eigenpy.configure.dep: eigenpy.checkout
-
+qpOASES.configure.dep: qpOASES.checkout
 
 # }}}
 ##################################
