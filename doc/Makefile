@@ -258,8 +258,8 @@ benchmark: baxter_common.install romeo.install universal_robot.install \
 	${MAKE} hpp_benchmark.checkout; \
 	${MAKE} hpp-doc.install
 
-rbprm: hpp-rbprm-corba.install hpp-gepetto-viewer.install \
-  ${MAKE} hpp-doc.install
+rbprm: hpp-rbprm-corba.install hpp-gepetto-viewer.install hpp-doc.install
+
 
 # }}}
 ##################################
