@@ -239,7 +239,7 @@ qgv_repository=${HPP_REPO}
 ##################################
 # {{{ High-level targets
 
-all: hpp_tutorial.install hpp-gepetto-viewer.install
+all: hpp_tutorial.install hpp-gepetto-viewer.install hpp-rbprm-corba.install
 	${MAKE} hpp-doc.install
 
 # For test on gepgitlab, install robot packages first
@@ -258,7 +258,7 @@ benchmark: baxter_common.install romeo.install universal_robot.install \
 	${MAKE} hpp_benchmark.checkout; \
 	${MAKE} hpp-doc.install
 
-rbprm: hpp-rbprm-corba.install hpp-gepetto-viewer.install hpp-doc.install
+
 
 
 # }}}
