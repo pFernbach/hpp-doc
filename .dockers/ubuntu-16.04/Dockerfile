@@ -55,6 +55,7 @@ RUN apt-get install -qqy \
       libopenscenegraph-dev \
       openscenegraph \
       libpcre3-dev \
+      libcdd-dev \
    && apt-get remove -qqy texlive-latex-base texlive-binaries ghostscript \
       && apt-get autoremove -qqy \
       && rm -rf /var/lib/apt/lists/*
