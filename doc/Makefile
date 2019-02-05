@@ -187,8 +187,8 @@ hpp-rbprm-robot-data_repository=${HPP_REPO}
 hpp-rbprm-corba_branch=devel
 hpp-rbprm-corba_repository=${HPP_REPO}
 
-hpp-centroidal-dynamics-lib_branch=master
-hpp-centroidal-dynamics-lib_repository=${HPP_REPO}
+hpp-centroidal-dynamics_branch=master
+hpp-centroidal-dynamics_repository=${HPP_REPO}
 
 hpp-bezier-COM-traj_branch=master
 hpp-bezier-COM-traj_repository=${GITLAB_REPO}
@@ -344,13 +344,13 @@ romeo.configure.dep: romeo.checkout
 hpp-affordance.configure.dep: hpp-core.install hpp-fcl.install hpp-affordance.checkout
 hpp-affordance-corba.configure.dep: hpp-affordance.install hpp-template-corba.install \
  hpp-corbaserver.install hpp-affordance-corba.checkout
-hpp-rbprm.configure.dep: hpp-core.install hpp-centroidal-dynamics-lib.install \
+hpp-rbprm.configure.dep: hpp-core.install hpp-centroidal-dynamics.install \
 hpp-affordance.install hpp-spline.install hpp-bezier-COM-traj.install hpp-rbprm.checkout
 hpp-rbprm-robot-data.configure.dep: hpp-rbprm-robot-data.checkout
 hpp-rbprm-corba.configure.dep: hpp-rbprm.install hpp-affordance-corba.install \
  hpp-corbaserver.install hpp-rbprm-robot-data.install hpp-rbprm-corba.checkout
-hpp-centroidal-dynamics-lib.configure.dep: qpOASES.install eigenpy.install hpp-centroidal-dynamics-lib.checkout
-hpp-bezier-COM-traj.configure.dep: hpp-centroidal-dynamics-lib.install hpp-spline.install hpp-bezier-COM-traj.checkout
+hpp-centroidal-dynamics.configure.dep: qpOASES.install eigenpy.install hpp-centroidal-dynamics.checkout
+hpp-bezier-COM-traj.configure.dep: hpp-centroidal-dynamics.install hpp-spline.install hpp-bezier-COM-traj.checkout
 hpp-spline.configure.dep: hpp-spline.checkout
 eigenpy.configure.dep: eigenpy.checkout
 qpOASES.configure.dep: qpOASES.checkout
