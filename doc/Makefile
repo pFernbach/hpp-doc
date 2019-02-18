@@ -10,6 +10,7 @@ SOT_REPO=https://github.com/stack-of-tasks
 GEPETTO_REPO=https://github.com/Gepetto
 RETHINK_ROBOTICS_REPO=https://github.com/RethinkRobotics
 TRAC_REPO=ssh://trac.laas.fr/git/jrl/robots/ros-hrp2
+PF_REPO=https://github.com/pFernbach
 
 SRC_DIR=${DEVEL_HPP_DIR}/src
 ifndef INSTALL_HPP_DIR
@@ -54,13 +55,13 @@ hpp-template-corba_repository=${HPP_REPO}
 # {{{ Packages supporting HPP_VERSION
 
 # Either a version tag (e.g. v4.3.0), master or devel
-HPP_VERSION=devel
+HPP_VERSION= v4.3.0
 HPP_EXTRA_FLAGS=-DDISABLE_TESTS=${DISABLE_TESTS}
 
 hpp-util_branch=${HPP_VERSION}
 hpp-util_repository=${HPP_REPO}
 
-hpp-fcl_branch=${HPP_VERSION}
+hpp-fcl_branch=rbprm_1_tag
 hpp-fcl_repository=${HPP_REPO}
 hpp-fcl_extra_flags= -DCMAKE_BUILD_TYPE=Release
 
@@ -75,8 +76,8 @@ hpp-constraints_branch=${HPP_VERSION}
 hpp-constraints_repository=${HPP_REPO}
 hpp-constraints_extra_flags=${HPP_EXTRA_FLAGS}
 
-hpp-core_branch=${HPP_VERSION}
-hpp-core_repository=${HPP_REPO}
+hpp-core_branch=rbrm_v_1
+hpp-core_repository=${PF_REPO}
 hpp-core_extra_flags=${HPP_EXTRA_FLAGS}
 
 hpp-corbaserver_branch=${HPP_VERSION}
@@ -179,15 +180,15 @@ hpp-affordance-corba_branch=${HPP_VERSION}
 hpp-affordance-corba_repository=${HPP_REPO}
 hpp-affordance-corba_extra_flags=${HPP_EXTRA_FLAGS}
 
-hpp-rbprm_branch=devel
-hpp-rbprm_repository=${HPP_REPO}
+hpp-rbprm_branch=anymal
+hpp-rbprm_repository=${PF_REPO}
 hpp-rbprm_extra_flags=${HPP_EXTRA_FLAGS}
 
 hpp-rbprm-robot-data_branch=master
 hpp-rbprm-robot-data_repository=${HPP_REPO}
 
 hpp-rbprm-corba_branch=devel
-hpp-rbprm-corba_repository=${HPP_REPO}
+hpp-rbprm-corba_repository=${PF_REPO}
 hpp-rbprm-corba_extra_flags=${HPP_EXTRA_FLAGS}
 
 hpp-centroidal-dynamics_branch=master
